@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+    <div class="main inline-block min-h-screen bg-zinc-900 w-full  text-white">
+        
+        <div class="form flex p-10 flex-col items-center ">
+            <h1 class="text-yellow-500 mb-4 uppercase font-bold">Enter New Task </h1>
+
+            <form action="" class="text-sm ">
+                <input class=" outline-none min-w-full bg-zinc-800 p-1 rounded-md m-1" type="text" placeholder="Enter Title">
+    
+                <textarea 
+                type="textarea" placeholder="Enter Description"
+                class=" outline-none min-w-full bg-zinc-800 p-1 rounded-md m-1 h-42 wrap resize-none"></textarea>
+
+                <input 
+                class="m-1 bg-green-500 p-1 rounded-md px-4"
+                type="submit">
+    
+            </form>
+        </div>
+
+
+        <div class=" gap-2 tasks max-w-2xl p-5 flex mx-auto justify-center sm:justify-start flex-wrap ">
+
+            <div class="task w-72 bg-zinc-800 p-2 rounded-md px-4">
+                <h1 class="tracking-tight uppercase">Lorem ipsum dolor sit amet.</h1>
+                <a class="text-blue-500 text-sm block pt-2" href="">read more</a>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+</html>
