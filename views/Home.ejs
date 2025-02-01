@@ -13,12 +13,14 @@
         <div class="form flex p-10 flex-col items-center ">
             <h1 class="text-yellow-500 mb-4 uppercase font-bold">Enter New Task </h1>
 
-            <form action="" class="text-sm ">
-                <input class=" outline-none min-w-full bg-zinc-800 p-1 rounded-md m-1" type="text" placeholder="Enter Title">
+            <form action="/create" method="post" class="text-sm ">
+                <input class=" outline-none min-w-full bg-zinc-800 p-1 rounded-md m-1" type="text" placeholder="Enter Title"
+                name="title">
     
                 <textarea 
                 type="textarea" placeholder="Enter Description"
-                class=" outline-none min-w-full bg-zinc-800 p-1 rounded-md m-1 h-42 wrap resize-none"></textarea>
+                class=" outline-none min-w-full bg-zinc-800 p-1 rounded-md m-1 h-42 wrap resize-none"
+                name="desc"></textarea>
 
                 <input 
                 class="m-1 bg-green-500 p-1 rounded-md px-4"
@@ -31,11 +33,11 @@
         <div class=" gap-2 tasks flex max-w-2xl p-5 mx-auto justify-center sm:justify-start flex-wrap ">
 
             <% if(files.length > 0 ){  %>
-                <% files.forEach(()=>{ %>
+                <% files.forEach((fileName)=>{ %>
                 
                     <div class="task block w-72 bg-zinc-800 p-2 rounded-md px-4">
-                        <h1 class="tracking-tight uppercase text-sm">Lorem ipsum dolor sit amet.</h1>
-                        <a class="text-blue-500 text-xs block pt-2" href="">read more</a>
+                        <h1 class="tracking-tight uppercase text-sm"><%= fileName.replace(/-/g, ' ').replace('.txt','') %></h1>
+                        <a class="text-blue-500 text-xs block pt-2" href="/readtask/taskname">read more</a>
                     </div>
 
                 <% }) %>
