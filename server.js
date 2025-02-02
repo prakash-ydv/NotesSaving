@@ -11,10 +11,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser()); // Initialize cookie-parser
+const folderPath = path.join(__dirname, 'Tasks'); // Use absolute path for safety
 
 // Home Route - Reads "Tasks" Folder
 app.get('/', (req, res) => {
-    const folderPath = path.join(__dirname, 'Tasks'); // Use absolute path for safety
 
     fs.readdir(folderPath, (err, files) => {
         if (err) {
@@ -35,8 +35,18 @@ app.post('/create', (req,res)=>{
     
 })
 
-app.get('readtask/:taskname', (req,res) => {
+app.get('/readtask/:taskname', (req,res) => {
+    fs.readFile(`./Tasks/${req.params.taskname}`, 'utf-8' ,(err,filedata)=>{
+        let title = req.params.taskname;
+        res.render('ShowNotes', {filedata,title})
+    })
+})
 
+app.get('/delete/:taskname', (req,res) => {
+    fs.unlink(`./Tasks/${req.params.taskname}`,(err)=>{
+        let title = req.params.taskname
+        res.redirect('/')
+    })
 })
 
 // Start Server

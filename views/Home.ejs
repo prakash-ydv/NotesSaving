@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>NotesSaver</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 <body>
@@ -37,7 +37,11 @@
                 
                     <div class="task block w-72 bg-zinc-800 p-2 rounded-md px-4">
                         <h1 class="tracking-tight uppercase text-sm"><%= fileName.replace(/-/g, ' ').replace('.txt','') %></h1>
-                        <a class="text-blue-500 text-xs block pt-2" href="/readtask/taskname">read more</a>
+                        <div class="gap-2 flex">
+                            <a class="text-blue-500 text-xs  pt-2" href="/readtask/<%=fileName%>">read more</a>
+
+                            <a class="text-red-500 text-xs  pt-2" href="/delete/<%=fileName%>">delete</a> 
+                        </div>
                     </div>
 
                 <% }) %>

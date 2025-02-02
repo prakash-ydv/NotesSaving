@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title.replace(/-/g, ' ').replace(".txt","") %></title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="container text-white min-h-screen min-w-screen bg-zinc-900 flex items-center flex-col p-10 gap-2">
+
+        <div class="title w-92 bg-zinc-800 flex items-center justify-center p-2 rounded-md font-bold uppercase text-yellow-500">
+            <%= title.replace(/-/g, ' ').replace(".txt","") %>
+        </div>
+
+        <div class="title w-92 bg-zinc-800 flex
+         p-4 rounded-md min-h-72">
+
+            <%= filedata %>
+        </div>
+
+        <div class="controls flex gap-5 mt-5">
+            <a class="bg-green-500 h-8 w-15 flex text-center justify-center items-center rounded-md uppercase font-semibold text-sm" href="/">Back</a>
+
+            <a class="bg-red-500 h-8 w-15 flex text-center justify-center items-center rounded-md uppercase font-semibold text-sm" href="/delete/<%= title %>">Delete</a>
+
+            <a class="bg-orange-500 h-8 w-15 flex text-center justify-center items-center rounded-md uppercase font-semibold text-sm" href="">Edit</a>
+        </div>
+    </div>
+</body>
+</html>
